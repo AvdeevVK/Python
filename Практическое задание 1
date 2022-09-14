@@ -1,0 +1,35 @@
+#Формат вывода
+#Отсортированные данные в виде таблицы, полученной с помощью форматированного вывода .format()
+
+from operator import itemgetter
+data = [
+ ['Other Theft', 2003, 5, 12, 16, 15, 'Strathcona', 49.269802, -123.083763],
+ ['Other Theft', 2003, 5, 7, 15, 20, 'Strathcona', 49.269802, -123.083763],
+ ['Other Theft', 2003, 4, 23, 16, 40, 'Strathcona', 49.269802, -123.083763],
+ ['Other Theft', 2003, 4, 20, 11, 15, 'Strathcona', 49.269802, -123.083763],
+ ['Other Theft', 2003, 4, 12, 17, 45, 'Strathcona', 49.269802, -123.083763],
+ ['Other Theft', 2003, 3, 26, 20, 45, 'Strathcona', 49.269802, -123.083763],
+ ['Offence Against a Person', 2015, 8, 11, 'unknown', 'unknown', 'unknown', 0.000000, 0.000000],
+ ['Break and Enter Residential/Other', 2003, 3, 10, 12, 0, 'Kerrisdale', 49.228051, -123.146610],
+ ['Mischief', 2003, 6, 28, 4, 13, 'Dunbar-Southlands', 49.255559, -123.193725],
+ ['Mischief', 2017, 3, 26, 23, 0, 'Sunset', 49.21431483, -123.101945],
+ ['Other Theft', 2003, 2, 16, 9, 2, 'Strathcona', 49.269802, -123.083763],
+ ['Break and Enter Residential/Other', 2003, 7, 9, 18, 15, 'Grandview-Woodland', 49.267734, -123.067654],
+ ['Other Theft', 2003, 1, 31, 19, 45, 'Strathcona', 49.269802, -123.083763],
+ ['Mischief', 2003, 9, 27, 1, 0, 'Dunbar-Southlands', 49.253762, -123.194407],
+ ['Offence Against a Person', 2017, 1 , 24, 'unknown', 'unknown', 'unknown', 0.000000, 0.000000],
+ ['Break and Enter Residential/Other', 2003, 4, 19, 18, 0, 'Grandview-Woodland', 49.267814, -123.067441],
+ ['Break and Enter Residential/Other', 2003, 9, 24, 18, 30, 'Grandview-Woodland', 49.267731, -123.067302],
+ ['Break and Enter Residential/Other', 2003, 11, 5, 8, 12, 'Sunset', 49.226430, -123.085283],
+ ['Break and Enter Commercial', 2003, 9, 26, 2, 30, 'West End', 49.284715, -123.122824],
+ ['Break and Enter Residential/Other', 2003, 10, 21, 10, 0, 'Grandview-Woodland', 49.267811, -123.067089],
+ ['Other Theft', 2003, 1, 25, 12, 30, 'Strathcona', 49.269802, -123.083763],
+ ['Offence Against a Person', 2003, 2, 12, 'unknown', 'unknown', 'unknown', 0.000000, 0.000000],
+ ['Other Theft', 2003, 1, 9, 6, 45, 'Strathcona', 49.269802, -123.083763],
+ ['Offence Against a Person', 2008, 2, 6, 'unknown', 'unknown', 'unknown', 0.000000, 0.000000],
+]
+for row in data:
+ row.append((int('unknown' != row[4])))
+data.sort(key=itemgetter(1,2), reverse=True)
+for row in data:
+ print('{: <33} | {: <2} | {: <2} | {: <2} | {: <7} | {: <7} | {: <18} | {: <11} | {: <11} | {: <2} '.format(*row))
